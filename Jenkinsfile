@@ -17,7 +17,14 @@ pipeline {
       }
       steps {
         sh 'echo \'Aqui las pruebas estaticas\''
-        withSonarQubeEnv(installationName: 'sonarqube', credentialsId: 'token de sonarqube')
+        withSonarQubeEnv('sonarqube') {
+          sh '''${scannerHome}/bin/sonar-scanner \\
+  -Dsonar.projectKey=backend-banco \\
+  -Dsonar.sources=. \\
+  -Dsonar.host.url=http://ec2-54-91-115-233.compute-1.amazonaws.com:9000 \\
+  -Dsonar.login=74e4835b2a5ce4de6e425d0b9226b5055f1ac1d0'''
+        }
+
       }
     }
     stage('Pruebas de Integracion') {
