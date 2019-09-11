@@ -13,7 +13,7 @@ pipeline {
     }
     stage('Pruebas estaticas SonarQube') {
       environment {
-        scannerHome = 'SonarQubeScanner'
+        scannerHome = '/var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonarqubescanner'
       }
       steps {
         sh 'echo \'Aqui las pruebas estaticas\''
