@@ -12,8 +12,12 @@ pipeline {
       }
     }
     stage('Pruebas estaticas SonarQube') {
+      environment {
+        scannerHome = 'SonarQubeScanner'
+      }
       steps {
         sh 'echo \'Aqui las pruebas estaticas\''
+        withSonarQubeEnv(installationName: 'sonarqube', credentialsId: 'token de sonarqube')
       }
     }
     stage('Pruebas de Integracion') {
