@@ -16,7 +16,9 @@ class UserSerializer(serializers.ModelSerializer):
             username = validated_data['username'],
             tipo_usuario = validated_data['tipo_usuario']
         )
-
+        if(user.tipo_usuario == 3):
+            user.is_superuser = True
+            user.is_staff = True
         user.set_password(validated_data['password'])
         user.save()
         return user
