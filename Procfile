@@ -1,1 +1,1 @@
-web: gunicorn bancoAPI.wsgi --pythonpath app --log-file -
+web: gunicorn bancoAPI.wsgi
