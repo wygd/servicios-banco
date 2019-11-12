@@ -13,8 +13,7 @@ pipeline {
     }
     stage('Pruebas estaticas SonarQube') {
       environment {
-        //scannerHome = '/var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonarqubescanner'
-        scannerHome = tool 'SonarQubeScanner'
+        scannerHome = 'SonarQubeScanner'
       }
       steps {
         sh 'echo \'Aqui las pruebas estaticas\''
@@ -24,7 +23,7 @@ pipeline {
           sh '''${scannerHome}/bin/sonar-scanner \\
   -Dsonar.projectKey=backend-banco \\
   -Dsonar.sources=. \\
-  -Dsonar.host.url=http://ec2-3-86-164-35.compute-1.amazonaws.com:9000 \\
+  -Dsonar.host.url=http://ec2-34-238-247-40.compute-1.amazonaws.com:9000 \\
   -Dsonar.login=74e4835b2a5ce4de6e425d0b9226b5055f1ac1d0'''
         }
 
