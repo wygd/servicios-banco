@@ -9,8 +9,10 @@ pipeline {
     stage('Pruebas Unitarias') {
       steps {
         sh '''echo \'Aqui se ejecutaran las pruebas unitarias\'
-echo $JAVA_HOME
-echo which java'''
+'''
+        sh '''echo $JAVA_HOME
+'''
+        sh 'echo which java'
       }
     }
     stage('Pruebas estaticas SonarQube') {
