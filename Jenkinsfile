@@ -2,8 +2,19 @@ pipeline {
   agent any
   stages {
     stage('Build') {
-      steps {
-        sh 'echo \'Aqui se ejecutara el build\''
+      parallel {
+        stage('Build') {
+          steps {
+            sh 'echo \'Aqui se ejecutara el build\''
+          }
+        }
+        stage('Prueba-build') {
+          steps {
+            sh 'source /home/ubuntu/environments/prueva_env/bin/activate'
+            sh 'pip3 freeze'
+            sh 'deactivate'
+          }
+        }
       }
     }
     stage('Pruebas Unitarias') {
