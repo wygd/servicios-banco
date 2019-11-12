@@ -12,7 +12,7 @@ pipeline {
 '''
         sh '''echo $JAVA_HOME
 '''
-        sh 'echo which java'
+        sh 'which java'
       }
     }
     stage('Pruebas estaticas SonarQube') {
