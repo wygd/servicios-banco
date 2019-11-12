@@ -25,10 +25,10 @@ pipeline {
           sh 'echo $scannerHome'
           sh 'echo $JAVA_HOME'
           sh '''${scannerHome}/bin/sonar-scanner \\
-  -Dsonar.projectKey=backend-banco \\
+  -Dsonar.projectKey=api-banca-virtual \\
   -Dsonar.sources=. \\
   -Dsonar.host.url=http://ec2-34-238-247-40.compute-1.amazonaws.com:9000 \\
-  -Dsonar.login=ac5d9adacd41a23b7a3f45ae4ceed6fbfbb5f43c'''
+  -Dsonar.login=3abcb72dbfd6220cf6b5fac014c44b620ce6e4f7'''
         }
 
       }
